@@ -2,6 +2,13 @@ const express= required('express');
 const app = express();
 
 
+app.use((req, res, next) => {
+    const requestNumber = Date.now();
+    console.log(`Request Number: ${requestNumber} - Method: ${req.method}`);
+    next();
+  });
+
+
 let students = [
     { id: 1, name: "John Wick", section: "Computer Science", gpa: "3.0", nationality: "Tawainese"},
     { id: 2, name: "Jennifer Lopez", section: "Music", gpa: "4.0", nationality: "Cree" },
